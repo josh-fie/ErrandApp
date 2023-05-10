@@ -1,0 +1,26 @@
+.nav {
+    width: 100%;
+    box-shadow: 0px -1px 10px 1px rgba(0, 0, 0, 0.9);
+    position: fixed;
+    bottom: 0;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    list-style-type: none;
+    text-decoration: none;
+    background-color: darkslategrey;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navbar li {
+    padding: 20px 0px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    height: 100%;
+}

@@ -1,0 +1,170 @@
+index.js - 
+
+<CompletedContextProvider>
+<PrioritiesContextProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter> 
+</PrioritiesContextProvider>
+</CompletedContextProvider>
+
+App.js
+
+import all page components, layout and route, routes from react-router-dom
+
+<Layout>
+<Routes>
+	<Route path='/' element={<AllErrandsPage />}>
+          </Route>
+	<Route path='/add_errand' element={<AddErrandsPage />}>
+          </Route>
+	<Route path='/stats' element={<StatisticsPage />}>
+          </Route>
+	<Route path='/settings' element={<SettingsPage />}>
+          </Route>
+</Routes>
+</Layout>
+
+Card.js
+
+<Card> Styling Component> - wrap around all errands listed
+
+AllErrands.js
+
+fetch api - to localstorage which returns Loading spinner until data retrieved then returns allErrandsList
+
+AllErrandsList.js
+
+takes in props (array of errand objects which is then mapped through to return an errandItem with props for the object properties.
+
+ErrandItem.js
+
+will use both the complete and priority contexts and then conditionally if complete or priority when toggle handler used on click will change apperance of designated icon.
+
+Make use of isComplete and isPriority methods attached to the 
+
+Priorities.js (Sub category)
+
+will import priorities context and if .totalPriorities is greater than 0 will generate a ErrandList which will in turn generate the errand items necessary that are prioritiescontext.priorities passed as prop variable.
+
+
+Completed.js (Sub category)
+
+will import completed context and if .totalCompleted is greater than 0 will generate a ErrandList which will in turn generate the errand items necessary that are completedcontext.priorities passed as prop variable.
+
+
+AddErrands.js
+
+
+Contains the component with adderrandhandler function which is called upon submission of the form  onSubmit on the <form> element within the AddErrandForm component. The adderrandhandler function is called containing the meetup data drawn from the fields of the form using useRef hooks. onAddErrand method called on props within the AddErrandForm submit handler
+
+This adderrandhandler function fetchPOSTS/setItem on localStorage
+
+The AddErrandForm component is only generated conditionally on variable map click (Leaflet) and then is map clicked again form component is removed again and text is displayed asking that the user clicks on the map to create an errand.
+
+
+AddErrandForm.js
+
+Contains the form element itself  with each line having a reference which is then assigned to be equal to the variable.current.value used with useRef() within the submithandler.
+
+
+Statistics.js
+
+Need to import and use both contexts to show the data for priorities and completed errands as well as all errands.
+
+return a card with the value taken from totalPriorities and totalCompleted from each context to display within the cards.
+
+
+Settings.js
+
+Either apply inline style changes or switch the style component overlay or adjust index.css stylesheet with vanilla js on the elements.
+
+
+PriorityContext
+
+const PrioritiesContext = createContext({
+    priorities: [],
+    totalPriorities: 0,
+    addPriority: (priorityErrand) => {},
+    removePriority: (errandId) => {},
+    itemIsPriority: (errandId) => {},
+});
+
+export function PrioritiesContextProvider(props) {
+    const [userPriorities, setUserPriorities] = useState([]);
+
+    function addPriorityHandler(priorityErrand) {
+        setUserPriorities((prevUserPriorities) => {
+            return prevUserPriorities.concat(priorityErrand);
+        });
+    }
+
+    function removePriorityHandler(errandId) {
+        setUserPriorities(prevUserPriorities => {
+            return prevUserPriorities.filter(errand => errand.id !== errandId);
+        });
+    }
+
+    function itemIsPriorityHandler(errandId) {
+        return userPriorities.some(errand => errand.id === errandId);
+    }
+
+    const context = {
+        priorities: userPriorities,
+        totalPriorities: userPriorities.length,
+        addPriority: addPriorityHandler,
+        removePriority: removePriorityHandler,
+        itemIsPriority: itemIsPriorityHandler,
+    };
+
+    return <PrioritiesContext.Provider value={context}>
+        {props.children}
+    </PrioritiesContext.Provider>
+}
+
+export default PrioritiesContext;
+
+
+CompleteContext
+
+const CompletedContext = createContext({
+    completed: [],
+    totalCompleted: 0,
+    addCompleted: (completedErrand) => {},
+    removeCompleted: (errandId) => {},
+    itemIsCompleted: (errandId) => {},
+});
+
+export function CompletedContextProvider(props) {
+    const [userCompleted, setUserCompleted] = useState([]);
+
+    function addCompletedHandler(completedErrand) {
+        setUserCompleted((prevUserCompleted) => {
+            return prevUserCompleted.concat(completedErrand);
+        });
+    }
+
+    function removeCompletedHandler(errandId) {
+        setUserCompleted(prevUserCompleted => {
+            return prevUserCompleted.filter(errand => errand.id !== errandId);
+        });
+    }
+
+    function itemIsCompletedHandler(errandId) {
+        return userCompleted.some(errand => errand.id === errandId);
+    }
+
+    const context = {
+        completed: userCompleted,
+        totalCompleted: userCompleted.length,
+        addCompleted: addCompletedHandler,
+        removeCompleted: removeCompletedHandler,
+        itemIsCompleted: itemIsCompletedHandler,
+    };
+
+    return <CompletedContext.Provider value={context}>
+        {props.children}
+    </CompletedContext.Provider>
+}
+
+export default CompletedContext;
