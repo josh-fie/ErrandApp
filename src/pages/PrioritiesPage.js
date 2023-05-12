@@ -1,17 +1,24 @@
-import {useState, useEffect} from 'react';
-import Card from '../ui/Card';
+import {useContext} from 'react';
 import ErrandList from '../components/ErrandList';
+import PrioritiesContext from '../contexts/priority-context';
 
 
 
 function PrioritiesPage(props) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadedErrands, setLoadedErrands] = useState(props.state);
+    const prioritiesContext = useContext(PrioritiesContext);
+
+    let content;
+
+    if(prioritiesContext.totalPriorities === 0) {
+        content = <p>You've no priorities yet.</p>
+    } else {
+        content = <ErrandList errands={prioritiesContext.priorities} />
+    }
 
   return (
   <section>
-    {/* <ErrandList errands={loadedErrands} /> */}
     <h1>Priorities</h1>
+    {content}
   </section> )
 }
 

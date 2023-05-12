@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import classes from './SecondaryNavigation.module.css';
 
 function SecondaryNavigation(props) {
@@ -6,13 +6,13 @@ function SecondaryNavigation(props) {
         <nav className={classes.nav}>
             <ul className={classes.navbar}>
                 <li>
-                    <Link to={'/allerrands'}>All Errands</Link>
+                    <NavLink to={'/'}>All Errands</NavLink>
                 </li>
                 <li>
-                    <Link to={'/priorities'}>Priorities</Link>
+                    <NavLink to={'/priorities'}>Priorities</NavLink>
                 </li>
                 <li>
-                    <Link to={'/completed'}>Completed</Link>
+                    <NavLink to={'/completed'}>Completed</NavLink>
                 </li>
             </ul>
         </nav>

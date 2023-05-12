@@ -19,6 +19,8 @@ function App() {
     // isPriority: true,
     // isCompleted: false,
     id: 1,
+    lat: 53.4009223,
+    lng: -0.3401704,
   },
   {
     name: 'Play Tennis',
@@ -26,6 +28,8 @@ function App() {
     // isPriority: true,
     // isCompleted: false,
     id: 2,
+    lat: 53.4009223,
+    lng: -0.3501704,
   },
   {
     name: 'Go to Bank',
@@ -33,24 +37,26 @@ function App() {
     // isPriority: false,
     // isCompleted: true,
     id: 3,
+    lat: 53.4009223,
+    lng: -0.3601704,
   }]
 
   return (
     <Layout>
       <Routes>
         <Route path='/' element={<ErrandsPage state={state}/>}>
-                </Route>
+            <Route path='/' element={<AllErrandsPage state={state}/>}>
+                    </Route>
+            <Route path='/priorities' element={<PrioritiesPage state={state}/>}>
+                    </Route>
+            <Route path='/completed' element={<CompletedPage state={state}/>}>
+                    </Route>
+        </Route>
         <Route path='/add_errand' element={<AddErrandsPage state={state}/>}>
                 </Route>
         <Route path='/stats' element={<StatisticsPage state={state}/>}>
                 </Route>
         <Route path='/settings' element={<SettingsPage state={state}/>}>
-                </Route>
-        <Route path='/allerrands' element={<AllErrandsPage state={state}/>}>
-                </Route>
-        <Route path='/priorities' element={<PrioritiesPage state={state}/>}>
-                </Route>
-        <Route path='/completed' element={<CompletedPage state={state}/>}>
                 </Route>
       </Routes>
     </Layout>

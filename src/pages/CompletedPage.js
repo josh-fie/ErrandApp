@@ -1,17 +1,24 @@
-import {useState, useEffect} from 'react';
-import Card from '../ui/Card';
+import {useContext} from 'react';
 import ErrandList from '../components/ErrandList';
+import CompletedContext from '../contexts/completed-context';
 
 
 
 function CompletedPage(props) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadedErrands, setLoadedErrands] = useState(props.state);
+    const completedContext = useContext(CompletedContext);
+
+    let content;
+
+    if(completedContext.totalCompleted === 0) {
+        content = <p>You've no errands completed yet.</p>
+    } else {
+        content = <ErrandList errands={completedContext.completed} />
+    }
 
   return (
   <section>
-    {/* <ErrandList errands={loadedErrands} /> */}
     <h1>Completed</h1>
+    {content}
   </section> )
 }
 
