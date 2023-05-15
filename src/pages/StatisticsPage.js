@@ -8,13 +8,14 @@ function StatisticsPage(props) {
     const completedContext = useContext(CompletedContext);
 
 
-    return (
+    if(props.state) return (
         <div className='statsPage'>
         <StatsCard title='Current Errands' number={props.state.length}/>
         <StatsCard title='Priority Errands' number={prioritiesContext.priorities.length}/>
         <StatsCard title='Completed Errands' number={completedContext.completed.length}/>
         </div>
     )
+    if(!props.state) return <h5>No stats to show</h5>;
 };
 
 export default StatisticsPage;

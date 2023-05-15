@@ -9,8 +9,6 @@ function AllErrandsPage(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedErrands, setLoadedErrands] = useState(props.state);
 
-// Geolocation API requesting location for map. This will ask for access to location on devices as app loads
-
 // Retrieve localStorage
 
 //   useEffect(() => {
@@ -44,7 +42,7 @@ function AllErrandsPage(props) {
 
   return (
   <section>
-    <ErrandList errands={loadedErrands} />
+    {loadedErrands ? <ErrandList errands={loadedErrands} /> : <h6>No errands to show</h6>}
   </section> )
 }
 

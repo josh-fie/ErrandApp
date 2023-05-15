@@ -168,3 +168,12 @@ export function CompletedContextProvider(props) {
 }
 
 export default CompletedContext;
+
+
+marker attribution
+
+attribution='<a href="https://iconscout.com/icons/map-marker" target="_blank">Free Map Marker Icon</a> by <a href="https://iconscout.com/contributors/mardika" target="_blank">Rizky Mardika</a>'
+
+new marker
+
+<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>
