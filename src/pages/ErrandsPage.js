@@ -50,11 +50,11 @@ function ErrandsPage(props) {
     {/* <ErrandList errands={loadedErrands} /> */}
     <SecondaryLayout>
       <Routes>
-        <Route path='/' element={<AllErrandsPage state={props.state}/>}>
+        <Route path='/' element={<AllErrandsPage state={props.state} setState={props.setState}/>}>
                 </Route>
-        <Route path='/priorities' element={<PrioritiesPage state={props.state}/>}>
+        <Route path='/priorities' element={<PrioritiesPage state={props.state} setState={props.setState}/>}>
                 </Route>
-        <Route path='/completed' element={<CompletedPage state={props.state}/>}>
+        <Route path='/completed' element={<CompletedPage state={props.state} setState={props.setState}/>}>
                 </Route>
       </Routes>
     </SecondaryLayout>

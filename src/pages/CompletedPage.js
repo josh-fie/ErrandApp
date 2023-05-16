@@ -12,7 +12,7 @@ function CompletedPage(props) {
     if(completedContext.totalCompleted === 0) {
         content = <p>You've no errands completed yet.</p>
     } else {
-        content = <ErrandList errands={completedContext.completed} />
+        content = <ErrandList errands={completedContext.completed} setState={props.setState}/>
     }
 
   return (

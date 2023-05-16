@@ -42,7 +42,7 @@ function AllErrandsPage(props) {
 
   return (
   <section>
-    {loadedErrands ? <ErrandList errands={loadedErrands} /> : <h6>No errands to show</h6>}
+    {loadedErrands && loadedErrands.length > 0 ? <ErrandList errands={loadedErrands} setState={props.setState}/> : <h6>No errands to show</h6>}
   </section> )
 }
 

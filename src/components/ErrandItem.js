@@ -26,7 +26,7 @@ function ErrandItem(props) {
         } else {
             priorityContext.addPriority({
                 name: props.name,
-                notes: props.notes,
+                notes: props.note,
                 // isPriority: true,
                 // isCompleted: false,
                 id: props.id,
@@ -42,7 +42,7 @@ function ErrandItem(props) {
         } else {
             completedContext.addCompleted({
                 name: props.name,
-                notes: props.notes,
+                notes: props.note,
                 // isPriority: true,
                 // isCompleted: false,
                 id: props.id,
@@ -52,13 +52,24 @@ function ErrandItem(props) {
         }
     }
 
+    function handleDeleteErrand () {
+        console.log(props);
+        props.setState(props.id, false);
+
+        // Remove from priorities
+        priorityContext.removePriority(props.id);
+        // Remove from completed
+        completedContext.removeCompleted(props.id);
+    }
+
     return (
     <Card>
         <h1>{props.name}</h1>
-        <p>{props.notes}</p>
+        <p>{props.note}</p>
         <button type='button' disabled={isDisabled} onClick={togglePriorityStatusHandler}>
         {itemIsPriority ? 'De-prioritise' : 'Prioritise'}</button>
         <button type='button' onClick={toggleCompletedStatusHandler} >{itemIsCompleted ? 'Incomplete' : 'Complete'}</button>
+        <button type='button' onClick={handleDeleteErrand} >Delete</button>
     </Card>
     )
 }

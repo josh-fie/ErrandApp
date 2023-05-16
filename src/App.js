@@ -43,10 +43,14 @@ function App() {
   null
   )
 
-  const handleSetState = (newErrand) => {
-    if (state) {
-    setErrandsState(prevState => [...prevState, newErrand]);
-    } else setErrandsState([newErrand]);
+  const handleSetState = (Errand, add=true) => {
+    if (state && add===true) {
+      setErrandsState(prevState => [...prevState, Errand]);
+    } else if (state && add===false) {
+      console.log("deleting errand")
+      setErrandsState(prevState => {return prevState.filter(errand => errand.id !== Errand);})
+    } else
+      setErrandsState([Errand]);
   }
 
 
