@@ -1,0 +1,11 @@
+.standard {
+    filter: invert();
+}
+
+.priority {
+    filter: opacity(20%);
+}
+
+.completed {
+    filter: grayscale();
+}

@@ -1,13 +1,15 @@
 // import classes from './Layout.module.css';
 import SecondaryNavigation from "./SecondaryNavigation";
+import { Outlet } from "react-router-dom";
 
 function SecondaryLayout(props) {
-    return <div>
+    return <>
         <SecondaryNavigation />
-        <main>
+        {/* <main>
         {props.children}
-        </main>
-    </div>
+        </main> */}
+        <Outlet />
+    </>
 }
 
 export default SecondaryLayout;

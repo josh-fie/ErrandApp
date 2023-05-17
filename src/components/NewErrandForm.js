@@ -43,7 +43,7 @@ function NewErrandForm(props) {
         <form className={classes.formContainer} onSubmit={formSubmitHandler}>
             <button type='button' onClick={onClickHandler}>X</button>
             <label htmlFor="errand_name">New Errand</label>
-            <input type="text" id="errand_name" placeholder="Errand Name" maxLength='12' ref={errandName} required/>
+            <input type="text" id="errand_name" placeholder="Errand Name" maxLength='16' ref={errandName} required/>
             <textarea id="notes" rows='3' ref={errandDescription} required/>
             <button type='submit'>Add New Errand</button>
         </form>

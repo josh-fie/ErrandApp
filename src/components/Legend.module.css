@@ -1,0 +1,47 @@
+:root  {
+    --standard-colour: black;
+    --priority-colour: green;
+    --completed-colour: darkblue;
+}
+
+.instruct {
+    position: absolute;
+    width: 90vw;
+    height: 20%;
+    bottom: 0;
+    z-index: 2010;
+    background-color: darkslategrey;
+    border-radius: 5px;
+    opacity: 75%;
+}
+
+.legend {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    z-index: 2000;
+    background-color: darkslategrey;
+    border-radius: 5px;
+}
+
+.standardColour {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--standard-colour);
+}
+
+.priorityColour {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--priority-colour);
+}
+
+.completedColour {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--completed-colour);
+}

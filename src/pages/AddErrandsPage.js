@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 import NewErrandForm from '../components/NewErrandForm';
 import MapComp from '../components/MapComp';
+import Legend from '../components/Legend';
+import Instruct from '../components/Instruct';
 
 
 function AddErrandsPage(props) {
@@ -20,8 +22,10 @@ function AddErrandsPage(props) {
 
   return (
     <>
-        <MapComp setClickPosition={handleClickPositionChange} state={props.state} location={props.location} formActivate={() => setFormActive(true)} />
-        {formActive ? <NewErrandForm clickPos={clickPos} setState={props.setState} state={props.state} onCloseSubmit={() => setFormActive(false)} /> : console.log("Form Inactive")}
+      <Legend />
+      <Instruct />
+      <MapComp setClickPosition={handleClickPositionChange} state={props.state} location={props.location} formActivate={() => setFormActive(true)} />
+      {formActive ? <NewErrandForm clickPos={clickPos} setState={props.setState} state={props.state} onCloseSubmit={() => setFormActive(false)} /> : console.log("Form Inactive")}
     </>
   )};
 

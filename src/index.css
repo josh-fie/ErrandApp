@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,11 +17,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: darkslategrey;
   color: white;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  height: 100%;
 }
 
 .statsPage {
@@ -29,5 +38,13 @@ code {
 
 .leaflet-container {
   width: 100%;
-  height: 400px;
+  height: 100%;
+}
+
+/* .leaflet-marker-icon {
+  filter: invert();
+} */
+
+.wrapper {
+  height: 100%;
 }

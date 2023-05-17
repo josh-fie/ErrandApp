@@ -11,7 +11,7 @@ import AddErrandsPage from './pages/AddErrandsPage';
 import AllErrandsPage from './pages/AllErrandsPage';
 import SettingsPage from './pages/SettingsPage';
 import StatisticsPage from './pages/StatisticsPage';
-import ErrandsPage from './pages/ErrandsPage';
+// import ErrandsPage from './pages/ErrandsPage';
 import PrioritiesPage from './pages/PrioritiesPage';
 import CompletedPage from './pages/CompletedPage';
 
@@ -87,12 +87,12 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path='/' element={<ErrandsPage state={state} setState={handleSetState}/>}>
-            <Route path='/' element={<AllErrandsPage state={state} setState={handleSetState}/>}>
+        <Route path='/' element={<SecondaryLayout />}>
+            <Route index element={<AllErrandsPage state={state} setState={handleSetState}/>}>
                     </Route>
-            <Route path='/priorities' element={<PrioritiesPage state={state} setState={handleSetState}/>}>
+            <Route path='priorities' element={<PrioritiesPage state={state} setState={handleSetState}/>}>
                     </Route>
-            <Route path='/completed' element={<CompletedPage state={state} setState={handleSetState}/>}>
+            <Route path='completed' element={<CompletedPage state={state} setState={handleSetState}/>}>
                     </Route>
         </Route>
         <Route path='/add_errand' element={<AddErrandsPage state={state} setState={handleSetState} location={loadedLocation}/>}>

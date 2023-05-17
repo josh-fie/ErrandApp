@@ -1,27 +1,61 @@
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { Icon, divIcon } from 'leaflet';
 import { useState, useRef } from 'react';
 import "leaflet/dist/leaflet.css";
-import NewErrandForm from './NewErrandForm';
+import classes from './Legend.module.css';
+import { useContext } from 'react';
+import PrioritiesContext from '../contexts/priority-context';
+import CompletedContext from '../contexts/completed-context';
 
 function MapComp(props) {
-    // const geoLocation = useGeoLocation(); Moved to the App Component and the value from geolocation will be passed into the MapComp through the AddErrandsPage.js
+    const priorityContext = useContext(PrioritiesContext);
+    const completedContext = useContext(CompletedContext);
 
-    // const [clickPos, setClickPosition] = useState(null);
 
     //unusre if below needs to be state and could just be prop being used instead. Could use setCenter if you want ot travel to specific errands on the map???
     // const [center, setCenter] = useState(props.location)
 
-    // console.log(props.location);
-
     const ZOOM_LEVEL = 10;
     const mapRef = useRef();
 
-    const newIcon = new Icon({
+    // Marker Icon Styles
+
+    const markerHtmlStyles = function(colour) { return `
+        background-color: ${colour};
+        width: 38px;
+        height: 38px;
+        display: block;
+        position: relative;
+        border-radius: 3rem 3rem 0;
+        transform: rotate(45deg);
+        border: 1px solid #FFFFFF;
+    `};
+
+    const newIcon = divIcon({
         iconUrl: require("../assets/geotag.png"),
+        className: "my-custom-pin",
         iconSize: [38, 38],
         iconAnchor: [19, 38],
-        popupAnchor: [0, -38]
+        popupAnchor: [0, -38],
+        html: `<span style="${markerHtmlStyles("black")}" />`
+    });
+
+    const newPriorityIcon = divIcon({
+        iconUrl: require("../assets/geotag.png"),
+        className: "my-custom-pin",
+        iconSize: [38, 38],
+        iconAnchor: [19, 38],
+        popupAnchor: [0, -38],
+        html: `<span style="${markerHtmlStyles("green")}" />`
+    });
+
+    const newCompletedIcon = divIcon({
+        iconUrl: require("../assets/geotag.png"),
+        className: "my-custom-pin",
+        iconSize: [38, 38],
+        iconAnchor: [19, 38],
+        popupAnchor: [0, -38],
+        html: `<span style="${markerHtmlStyles("darkblue")}" />`
     });
 
     function HandleClickEvent(props) {
@@ -48,10 +82,24 @@ function MapComp(props) {
             <HandleClickEvent formActivate={props.formActivate} setClickPosition={props.setClickPosition}/>
 
             {props.state ? props.state.map((errand, index) => {
-                // console.log(errand);
+
+                const itemIsPriority = priorityContext.itemIsPriority(errand.id);
+                const itemIsCompleted = completedContext.itemIsCompleted(errand.id);
+
+                console.log(itemIsPriority, itemIsCompleted);
+
+                if(itemIsCompleted) { return <Marker position={[errand.lat, errand.lng]} icon={newCompletedIcon} key={index} attribution='<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>'>
+                <Popup><p>{errand.name}</p><p>{errand.notes}</p></Popup>
+                </Marker> };
+
+                if(itemIsPriority) { return <Marker position={[errand.lat, errand.lng]} icon={newPriorityIcon} key={index} attribution='<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>'>
+                <Popup><p>{errand.name}</p><p>{errand.notes}</p></Popup>
+                </Marker> } else {
+
                 return <Marker position={[errand.lat, errand.lng]} icon={newIcon} key={index} attribution='<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>'>
-                <Popup><p>{errand.name}</p></Popup>
-                </Marker>
+                <Popup><p>{errand.name}</p><p>{errand.notes}</p></Popup>
+                </Marker> 
+                }
             }) : null}
 
             {/* <Marker position={center} icon={newIcon} attribution='<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>'>
