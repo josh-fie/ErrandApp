@@ -1,5 +1,9 @@
 .card {
-    background-color: grey;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
+  background-color: grey;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin: 5px 0px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
+}

@@ -16,10 +16,10 @@ function PrioritiesPage(props) {
     }
 
   return (
-  <section>
-    <h1>Priorities</h1>
+  <div>
+    <h3>Priorities</h3>
     {content}
-  </section> )
+  </div> )
 }
 
 export default PrioritiesPage;

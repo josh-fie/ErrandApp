@@ -18,30 +18,24 @@ import CompletedPage from './pages/CompletedPage';
 function App() {
   const [loadedLocation, setLoadedLocation] = useState({lat: '', lng: ''});
   const [isLoading, setLoading] = useState(true);
-  const [state, setErrandsState] = useState(
-    // [{
-    // name: 'Go to Shops',
-    // notes: 'Make sure that you go before 5pm and pick up some bananas and milk.',
-    // id: 1,
-    // lat: 53.4009223,
-    // lng: -0.3401704,
-  // },
-  // {
-  //   name: 'Play Tennis',
-  //   notes: 'Meet at the tennis club for a tournament match at 7pm.',
-  //   id: 2,
-  //   lat: 53.4009223,
-  //   lng: -0.3501704,
-  // },
-  // {
-  //   name: 'Go to Bank',
-  //   notes: 'Go tomorrow to the bank to register for a new savings account.',
-  //   id: 3,
-  //   lat: 53.4009223,
-  //   lng: -0.3601704,
-  // }]
-  null
-  )
+
+  // Setting States
+  const [lightMode, setLightMode] = useState(false);
+  const [largeText, setLargeText] = useState(false);
+
+  //Instructions Show
+  const [instructionsToShow, setInstructions] = useState(true);
+
+
+  const [state, setErrandsState] = useState(null)
+
+  const handleLightMode = () => {
+    setLightMode( prevLightMode => !prevLightMode);
+  }
+
+  const handleLargeText = () => {
+    setLargeText( prevLargeText => !prevLargeText);
+  }
 
   const handleSetState = (Errand, add=true) => {
     if (state && add===true) {
@@ -77,6 +71,10 @@ function App() {
     console.log(state);
   }, [state])
 
+  useEffect(() => {
+    console.log("Light Mode:", lightMode, "Large Text:", largeText);
+  }, [lightMode, largeText]);
+
   // If GeoLocation still retrieving location show loading page for app.
   if(isLoading) {
     return (
@@ -85,7 +83,7 @@ function App() {
   }
 
   return (
-    <Layout>
+    <Layout lightMode={lightMode} largeText={largeText}>
       <Routes>
         <Route path='/' element={<SecondaryLayout />}>
             <Route index element={<AllErrandsPage state={state} setState={handleSetState}/>}>
@@ -95,11 +93,11 @@ function App() {
             <Route path='completed' element={<CompletedPage state={state} setState={handleSetState}/>}>
                     </Route>
         </Route>
-        <Route path='/add_errand' element={<AddErrandsPage state={state} setState={handleSetState} location={loadedLocation}/>}>
+        <Route path='/add_errand' element={<AddErrandsPage state={state} setState={handleSetState} location={loadedLocation} instructionsToShow={instructionsToShow} setInstructions={setInstructions}/>}>
                 </Route>
         <Route path='/stats' element={<StatisticsPage state={state} setState={handleSetState}/>}>
                 </Route>
-        <Route path='/settings' element={<SettingsPage state={state} setState={handleSetState}/>}>
+        <Route path='/settings' element={<SettingsPage state={state} setState={handleSetState} setLightMode={handleLightMode} lightMode={lightMode} largeText={largeText} setLargeText={handleLargeText}/>}>
                 </Route>
       </Routes>
     </Layout>

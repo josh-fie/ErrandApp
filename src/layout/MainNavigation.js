@@ -4,7 +4,7 @@ import classes from './MainNavigation.module.css';
 function MainNavigation(props) {
     return (
         <nav className={classes.nav}>
-            <ul className={classes.navbar}>
+            <ul className={!props.lightMode ? classes.navbarDark : classes.navbarLight}>
                 <li>
                     <Link to={'/add_errand'}>Add Errand</Link>
                 </li>

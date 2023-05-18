@@ -9,9 +9,9 @@ function AllErrandsPage(props) {
   // const [isLoading, setIsLoading] = useState(true);
 
   return (
-  <section>
-    {props.state && props.state.length > 0 ? <ErrandList errands={props.state} setState={props.setState}/> : <h6>No errands to show</h6>}
-  </section> )
+  <div>
+    {props.state && props.state.length > 0 ? <ErrandList errands={props.state} setState={props.setState}/> : <h3>No errands to show</h3>}
+  </div> )
 }
 
 export default AllErrandsPage;

@@ -17,3 +17,25 @@
     transform: rotate(360deg);
   }
 }
+
+#root {
+  height: 100%;
+  width: 100vw;
+}
+
+.statsPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+}
+

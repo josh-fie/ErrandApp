@@ -70,12 +70,16 @@ function ErrandItem(props) {
 
     return (
     <Card>
-        <h1>{props.name}</h1>
-        <p>{props.note}</p>
-        <button className={classes.button} type='button' disabled={isDisabled} onClick={togglePriorityStatusHandler}>
-        {itemIsPriority ? <img src={flag} style={{filter: 'brightness(0) saturate(100%) invert(27%) sepia(99%) saturate(1185%) hue-rotate(91deg) brightness(98%) contrast(106%)'}}/> : <img src={flag} style={{filter: 'invert()', opacity: '0.5'}}/>}</button>
-        <button className={classes.button} type='button' onClick={toggleCompletedStatusHandler} >{itemIsCompleted ? <img src={check} style={{filter: 'brightness(0) saturate(100%) invert(16%) sepia(36%) saturate(5305%) hue-rotate(228deg) brightness(83%) contrast(132%)'}}/> : <img src={check} style={{filter: 'invert()', opacity: '0.5'}}/>}</button>
-        <button className={classes.button} type='button' onClick={handleDeleteErrand} ><img src={close}/></button>
+        <h3>{props.name}</h3>
+        <div className={classes.cardButtons}>
+            <button className={classes.button} type='button' disabled={isDisabled} onClick={togglePriorityStatusHandler}>
+            {itemIsPriority ? <img src={flag} style={{filter: 'brightness(0) saturate(100%) invert(27%) sepia(99%) saturate(1185%) hue-rotate(91deg) brightness(98%) contrast(106%)'}}/> : <img src={flag} style={{filter: 'invert()', opacity: '0.5'}}/>}</button>
+            <button className={classes.button} type='button' onClick={toggleCompletedStatusHandler} >{itemIsCompleted ? <img src={check} style={{filter: 'brightness(0) saturate(100%) invert(16%) sepia(36%) saturate(5305%) hue-rotate(228deg) brightness(83%) contrast(132%)'}}/> : <img src={check} style={{filter: 'invert()', opacity: '0.5'}}/>}</button>
+            <button className={classes.button} type='button' onClick={handleDeleteErrand} ><img src={close}/></button>
+        </div>
+        <div className={classes.cardParagraph}>
+            <p>{props.note}</p>
+        </div>
     </Card>
     )
 

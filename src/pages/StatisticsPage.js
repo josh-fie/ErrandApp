@@ -15,7 +15,7 @@ function StatisticsPage(props) {
         <StatsCard title='Completed Errands' number={completedContext.completed.length}/>
         </div>
     )
-    if(!props.state) return <h5>No stats to show</h5>;
+    if(!props.state) return <h3>No stats to show</h3>;
 };
 
 export default StatisticsPage;

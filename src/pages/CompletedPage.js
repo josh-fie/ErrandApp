@@ -16,10 +16,10 @@ function CompletedPage(props) {
     }
 
   return (
-  <section>
-    <h1>Completed</h1>
+  <div>
+    <h3>Completed</h3>
     {content}
-  </section> )
+  </div> )
 }
 
 export default CompletedPage;

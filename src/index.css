@@ -15,36 +15,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: darkslategrey;
-  color: white;
+  /* background-color: darkslategrey;
+  color: white; */
   height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-#root {
-  height: 100%;
-}
-
-.statsPage {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.leaflet-container {
-  width: 100%;
-  height: 100%;
-}
-
-/* .leaflet-marker-icon {
-  filter: invert();
-} */
-
-.wrapper {
-  height: 100%;
 }

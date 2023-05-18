@@ -23,7 +23,7 @@ function AddErrandsPage(props) {
   return (
     <>
       <Legend />
-      <Instruct />
+      {props.instructionsToShow ? <Instruct setInstructions={props.setInstructions} instructionsToShow={props.instructionsToShow}/> : null}
       <MapComp setClickPosition={handleClickPositionChange} state={props.state} location={props.location} formActivate={() => setFormActive(true)} />
       {formActive ? <NewErrandForm clickPos={clickPos} setState={props.setState} state={props.state} onCloseSubmit={() => setFormActive(false)} /> : console.log("Form Inactive")}
     </>

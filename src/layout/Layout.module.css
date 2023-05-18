@@ -1,4 +1,27 @@
-.main {
+/* Dark Mode and Light Mode Styling for Main*/
+
+.mainDarkMode {
     height: 90%;
+    width: 100%;
     position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: darkslategrey;
+    color: white;
+}
+  
+.mainLightMode {
+    height: 90%;
+    width: 100%;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: whitesmoke;
+    color: rgba(0,0,0,0.75);
+}
+
+/* Large Text Mode */
+
+.mainLargeText {
+    font-size: 1.25rem;
 }
