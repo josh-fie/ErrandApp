@@ -78,7 +78,7 @@ function App() {
   // If GeoLocation still retrieving location show loading page for app.
   if(isLoading) {
     return (
-      <AppLoadingPage />
+      <AppLoadingPage/>
     )
   }
 
@@ -86,16 +86,16 @@ function App() {
     <Layout lightMode={lightMode} largeText={largeText}>
       <Routes>
         <Route path='/' element={<SecondaryLayout />}>
-            <Route index element={<AllErrandsPage state={state} setState={handleSetState}/>}>
+            <Route index element={<AllErrandsPage state={state} setState={handleSetState} lightMode={lightMode}/>}>
                     </Route>
-            <Route path='priorities' element={<PrioritiesPage state={state} setState={handleSetState}/>}>
+            <Route path='priorities' element={<PrioritiesPage state={state} setState={handleSetState} lightMode={lightMode}/>}>
                     </Route>
-            <Route path='completed' element={<CompletedPage state={state} setState={handleSetState}/>}>
+            <Route path='completed' element={<CompletedPage state={state} setState={handleSetState} lightMode={lightMode}/>}>
                     </Route>
         </Route>
         <Route path='/add_errand' element={<AddErrandsPage state={state} setState={handleSetState} location={loadedLocation} instructionsToShow={instructionsToShow} setInstructions={setInstructions}/>}>
                 </Route>
-        <Route path='/stats' element={<StatisticsPage state={state} setState={handleSetState}/>}>
+        <Route path='/stats' element={<StatisticsPage state={state} setState={handleSetState} lightMode={lightMode}/>}>
                 </Route>
         <Route path='/settings' element={<SettingsPage state={state} setState={handleSetState} setLightMode={handleLightMode} lightMode={lightMode} largeText={largeText} setLargeText={handleLargeText}/>}>
                 </Route>

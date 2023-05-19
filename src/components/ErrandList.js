@@ -5,7 +5,7 @@ function ErrandList(props) {
     <>
         {props.errands.map((obj) => {
             console.log(props, obj);
-            return <ErrandItem key={obj.id} id={obj.id} name={obj.name} note={obj.notes} setState={props.setState}/>
+            return <ErrandItem key={obj.id} id={obj.id} name={obj.name} note={obj.notes} setState={props.setState} lightMode={props.lightMode}/>
         })}
     </>
     )

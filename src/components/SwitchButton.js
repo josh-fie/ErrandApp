@@ -6,7 +6,7 @@ export function SwitchLightButton (props) {
 
     return (
         <div className={classes.switch}>
-        <h3>{props.switchname}</h3>
+        <h4>{props.switchname}</h4>
         <img src={!props.lightMode ? offSwitch : onSwitch} alt={props.alt} onClick={props.setLightMode}></img>
         </div>
     )
@@ -16,7 +16,7 @@ export function SwitchTextButton (props) {
 
     return (
         <div className={classes.switch}>
-        <h3>{props.switchname}</h3>
+        <h4>{props.switchname}</h4>
         <img src={!props.largeText ? offSwitch : onSwitch} alt={props.alt} onClick={props.setLargeText}></img>
         </div>
     )

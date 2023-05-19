@@ -10,7 +10,7 @@ function AllErrandsPage(props) {
 
   return (
   <div>
-    {props.state && props.state.length > 0 ? <ErrandList errands={props.state} setState={props.setState}/> : <h3>No errands to show</h3>}
+    {props.state && props.state.length > 0 ? <ErrandList errands={props.state} setState={props.setState} lightMode={props.lightMode}/> : <p>You've no errands added yet.</p>}
   </div> )
 }
 

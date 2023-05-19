@@ -6,13 +6,13 @@ function SecondaryNavigation(props) {
         <nav className={classes.nav}>
             <ul className={classes.navbar}>
                 <li>
-                    <NavLink to={'/'} className={nav => (nav.isActive ? classes.linkActive : '')}><span>All Errands</span></NavLink>
+                    <NavLink to={'/'} className={nav => (nav.isActive ? classes.linkActive : '')}><h4>All</h4></NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/priorities'} className={nav => (nav.isActive ? classes.linkActive : '')}><span>Priorities</span></NavLink>
+                    <NavLink to={'/priorities'} className={nav => (nav.isActive ? classes.linkActive : '')}><h4>Priority</h4></NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/completed'} className={nav => (nav.isActive ? classes.linkActive : '')}><span>Completed</span></NavLink>
+                    <NavLink to={'/completed'} className={nav => (nav.isActive ? classes.linkActive : '')}><h4>Complete</h4></NavLink>
                 </li>
             </ul>
         </nav>

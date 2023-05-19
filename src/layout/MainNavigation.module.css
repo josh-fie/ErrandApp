@@ -30,12 +30,28 @@
     justify-content: space-evenly;
 }
 
-/* .navbar li {
-    padding: 20px 0px;
-} */
-
 .navbarDark a, .navbarLight a {
     text-decoration: none;
     color: inherit;
     height: 100%;
+}
+
+.navbarDark a img {
+    filter: invert();
+}
+
+.navbarDark li:first-of-type a img {
+    filter: none;
+}
+
+.navbarLight a img {
+    filter: none;
+}
+
+a img {
+    width: 85%;
+}
+
+.linkActive {
+    background-color: yellow;
 }

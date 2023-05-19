@@ -3,21 +3,6 @@
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 #root {
   height: 100%;
   width: 100vw;
@@ -28,6 +13,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: .75rem;
 }
 
 .leaflet-container {
@@ -39,3 +25,32 @@
   height: 100%;
 }
 
+.loadingDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: darkslategrey;
+  color: white;
+}
+
+.loadingDiv img {
+  width: 100px;
+}
+
+/* Spinner */
+.loadingDiv img.App-logo {
+  animation: App-logo-spin infinite 2s linear;
+  width: 40px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

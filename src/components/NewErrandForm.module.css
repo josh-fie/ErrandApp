@@ -1,6 +1,7 @@
 .formContainer {
     position: fixed;
-    top: 30px;
+    top: 30vh;
+    right: 6%;
     padding: 10px;
     /* left: auto; */
     width: 90vw;
@@ -11,8 +12,67 @@
 }
 
 .formContainer input, textarea {
+    display: block;
     width: 100%;
-    background-color: lightgrey;
-    color: black;
+    padding: 6px 12px;
+    font-family: inherit;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.formContainer input {
+    height: 34px;
+}
+
+.formContainer input:focus-visible, textarea:focus-visible {
+    outline: none;
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
+    line-height: 1.42857143;
+    font-family: inherit;
+}
+
+.formTitleClose {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.formTitleClose label {
+    margin-left: 8px;
+}
+
+.formTitleClose button {
+    width: 20px;
+    background: none;
     border: none;
+    opacity: 75%;
+    transition: all .3s;
+}
+
+.formTitleClose button:hover, .submitButton:hover {
+    opacity: 100%;
+
+}
+
+.formTitleClose button img {
+    width: 100%;
+}
+
+.submitButton {
+    border-radius: 5px;
+    border: none;
+    background-color: limegreen;
+    padding: 4px 8px;
+    width: 100%;
+    opacity: 75%;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transition: all .3s;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
 }

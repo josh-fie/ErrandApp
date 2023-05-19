@@ -12,12 +12,11 @@ function CompletedPage(props) {
     if(completedContext.totalCompleted === 0) {
         content = <p>You've no errands completed yet.</p>
     } else {
-        content = <ErrandList errands={completedContext.completed} setState={props.setState}/>
+        content = <ErrandList errands={completedContext.completed} setState={props.setState} lightMode={props.lightMode}/>
     }
 
   return (
   <div>
-    <h3>Completed</h3>
     {content}
   </div> )
 }

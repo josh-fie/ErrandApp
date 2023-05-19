@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import classes from './NewErrandForm.module.css'
+import close from '../assets/close.png';
 
 
 function NewErrandForm(props) {
@@ -41,11 +42,13 @@ function NewErrandForm(props) {
     return (
     <>
         <form className={classes.formContainer} onSubmit={formSubmitHandler}>
-            <button type='button' onClick={onClickHandler}>X</button>
-            <label htmlFor="errand_name">New Errand</label>
-            <input type="text" id="errand_name" placeholder="Errand Name" maxLength='16' ref={errandName} required/>
-            <textarea id="notes" rows='3' ref={errandDescription} required/>
-            <button type='submit'>Add New Errand</button>
+            <div className={classes.formTitleClose}>
+                <label htmlFor="errand_name">New Errand</label>
+                <button type='button' onClick={onClickHandler}><img src={close} alt='Close' /></button>
+            </div>
+            <input type="text" id="errand_name" placeholder="Name..." maxLength='30' ref={errandName} required autoFocus/>
+            <textarea id="notes" rows='4' ref={errandDescription} placeholder="Notes..." required/>
+            <button type='submit' className={classes.submitButton}>+</button>
         </form>
     </>
     )

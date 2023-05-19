@@ -1,10 +1,14 @@
+import newLogo from '../assets/logo.png';
+import spinner from '../assets/spinner.png';
+
 function AppLoadingPage(props) {
     return (
-        <>
-            <img src="src/assets/geotag.png" alt="Errand Logo" />
-            <h2>App Loading...</h2>
-            <p>Spinner located here animated</p>
-        </>
+        <div className="loadingDiv">
+            <img src={newLogo} alt="Errand Logo" style={{filter: 'invert()'}}/>
+            <h2>Loading...</h2>
+            <img src={spinner} className="App-logo" style={{filter: 'invert()'}} />
+            <p>&copy; App Design by Joshua Fieldhouse</p>
+        </div>
     )
 };
 

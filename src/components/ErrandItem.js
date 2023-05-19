@@ -69,7 +69,7 @@ function ErrandItem(props) {
     }
 
     return (
-    <Card>
+    <Card lightMode={props.lightMode}>
         <h3>{props.name}</h3>
         <div className={classes.cardButtons}>
             <button className={classes.button} type='button' disabled={isDisabled} onClick={togglePriorityStatusHandler}>

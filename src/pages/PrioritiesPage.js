@@ -12,12 +12,11 @@ function PrioritiesPage(props) {
     if(prioritiesContext.totalPriorities === 0) {
         content = <p>You've no priorities yet.</p>
     } else {
-        content = <ErrandList errands={prioritiesContext.priorities} setState={props.setState}/>
+        content = <ErrandList errands={prioritiesContext.priorities} setState={props.setState} lightMode={props.lightMode}/>
     }
 
   return (
   <div>
-    <h3>Priorities</h3>
     {content}
   </div> )
 }
