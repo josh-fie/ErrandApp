@@ -21,6 +21,21 @@
   height: 100%;
 }
 
+/* Popup Styling */
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+  color: darkslategrey;
+  border-radius: 0px;
+  border: none;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+  margin: 16px 8px;
+  line-height: unset;
+  font-size: 1rem;
+  min-height: unset;
+}
+
 .wrapper {
   height: 100%;
 }

@@ -89,15 +89,15 @@ function MapComp(props) {
                 console.log(itemIsPriority, itemIsCompleted);
 
                 if(itemIsCompleted) { return <Marker position={[errand.lat, errand.lng]} icon={newCompletedIcon} key={index} attribution='<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>'>
-                <Popup><p>{errand.name}</p><p>{errand.notes}</p></Popup>
+                <Popup><div className={classes.errandTitle}><h4>{errand.name}</h4></div><div>{errand.notes}</div></Popup>
                 </Marker> };
 
                 if(itemIsPriority) { return <Marker position={[errand.lat, errand.lng]} icon={newPriorityIcon} key={index} attribution='<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>'>
-                <Popup><p>{errand.name}</p><p>{errand.notes}</p></Popup>
+                <Popup><div className={classes.errandTitle}><h4>{errand.name}</h4></div><div>{errand.notes}</div></Popup>
                 </Marker> } else {
 
                 return <Marker position={[errand.lat, errand.lng]} icon={newIcon} key={index} attribution='<a href="https://iconscout.com/icons/geotag" target="_blank">Free Geotag Icon</a> by <a href="https://iconscout.com/contributors/pro-symbols">Pro Symbols</a> on <a href="https://iconscout.com">IconScout</a>'>
-                <Popup><p>{errand.name}</p><p>{errand.notes}</p></Popup>
+                <Popup><div className={classes.errandTitle}><h4>{errand.name}</h4></div><div>{errand.notes}</div></Popup>
                 </Marker> 
                 }
             }) : null}

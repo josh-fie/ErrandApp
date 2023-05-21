@@ -1,0 +1,27 @@
+<a href="https://www.flaticon.com/free-icons/add-button" title="add button icons">Add button icons created by Anggara - Flaticon</a>
+
+add button
+
+<a href="https://www.flaticon.com/free-icons/stats" title="stats icons">Stats icons created by Freepik - Flaticon</a>
+
+stats button
+
+<a href="https://www.flaticon.com/free-icons/settings" title="settings icons">Settings icons created by Pixel perfect - Flaticon</a>
+
+settings button
+
+<a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a>
+
+home button
+
+<a href="https://www.flaticon.com/free-icons/clock" title="clock icons">Clock icons created by Miftakhul Rizky - Flaticon</a>
+
+clock icon
+
+<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Ayman Elasfory - Flaticon</a>
+
+arrow icon for logo
+
+<a href="https://www.flaticon.com/free-icons/loading" title="loading icons">Loading icons created by iconographics - Flaticon</a>
+
+spinner icon
